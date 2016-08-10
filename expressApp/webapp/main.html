@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SSA4Week Tweet Clone Main Page</title>
+<link rel="stylesheet" href="theme.css">
+<script src="utils.js"></script>
+<script src="publictweet.js"></script>
+<script src="followers.js"></script>
+</head>
+
+<body>
+<div id="page-container">
+
+<div class="content-left">
+	<div class="roundBorder">
+		<div style="display: inline-block;vertical-align:middle"><a href="personal.html"><span id="userAvater"></span></a></div>
+		<div style="display: inline-block;vertical-align:middle" class="userTitle"><a href="personal.html"><span id="userInfoSpan"></span></a></div>
+	</div>
+	<div class="roundBorder">
+		<div><b>Followers</b></div>
+		<div id="followerlist">
+		</div>
+	</div>
+</div>
+
+<div class="content-right roundBorder">
+	<div class="tweet-box">
+		<textarea rows="2" cols="70" id="tweet_msg"></textarea>
+		<button onclick="sendTweet();">Tweet</button>
+	</div>
+	<div id="publictweet">
+	</div>
+</div>
+
+</div>
+<script>
+/*	var userInfo = GetCookie();
+	if(userInfo == undefined) {
+		window.location.href = "signon.html";
+	};
+*/
+	// ajaxHandler("rest/userinfo/", function (userInfo) {
+	// //alert(userInfo);
+	// 	if(userInfo == "") {
+	// 		window.location.href = "signon.html";
+	// 	}
+	// 	var userInfoSpan = document.getElementById("userInfoSpan");
+	// 	//userInfoSpan.innerHTML = userInfo['firstName'] + " " + userInfo['lastName'];
+	// 	userInfoSpan.innerHTML = userInfo['userId'];
+	// 	document.getElementById("userAvater").innerHTML = "<img src='avatar/abu.jpg' width='72'>";
+	// });
+
+		var userInfoSpan = document.getElementById("userInfoSpan");
+		//userInfoSpan.innerHTML = userInfo['firstName'] + " " + userInfo['lastName'];
+		userInfoSpan.innerHTML = "abu";
+		document.getElementById("userAvater").innerHTML = "<img src='avatar/abu.jpg' width='72'>";
+
+/*	if(document.getElementById("userAvater").innerHTML == "") {
+		alert("Not logon");
+	}
+*/	
+	getFollowers();
+	getPulicTweet();
+	
+	function sendTweet() {
+		var msg = document.getElementById("tweet_msg").value.trim();
+		if(msg.length == 0) {
+			alert("Please write your tweet!");
+		}
+		else {
+			var useId = document.getElementById("userInfoSpan").innerText;
+			//alert("?tweetmsg=" + encodeURI(msg));
+			ajaxHandler("rest/sendtweet/" + useId + "?tweetmsg=" + encodeURI(msg), function (tweet) {
+				getPulicTweet();
+				document.getElementById("tweet_msg").value = "";
+			});
+		}
+	}
+</script>
+</body>
+</html>

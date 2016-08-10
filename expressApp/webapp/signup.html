@@ -1,0 +1,97 @@
+<!DOCTYPE HTML >
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<!--<link rel="stylesheet" href="theme.css">-->
+<title></title>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="Test.js"></script>
+</head>
+
+<body>
+<form id="regform" name="registerationform" method="POST" action="servlet/signup"  onsubmit="regvalidate(this.form);">
+
+<div style = "height:10px;width:100px; horizontal-align:center; margin-left:40%; margin-right:25%; margin-bottom:90px; margin-top:5%; ";>
+<img src="images/twitter-header.jpg" alt="twitter clone" style="width:224px;height:78px;margin-left:5%; margin-right:75%; margin-bottom:100px; ">
+</div>
+
+<div id="wrap" style=" horizontal-align:center; margin-left:40%; margin-right:25%; margin-bottom:100px; margin-top:7%;">
+  
+    <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="300">
+      <tr>
+        <td>User ID: </td>
+        <td class="cntr">
+        <input type="text" name="uidtxt" size="20"></td>
+      </tr>
+	   <tr>
+        <td>Password : </td>
+        <td class="cntr"><input type="password" name="passtxt" size="20"> </td>
+      </tr>
+     
+      <tr>
+        <td>User Name:</td>
+        <td class="cntr">
+        <input type="text" name="fnametxt" size="20"> </td>
+      </tr>
+	   <tr>
+        <td>Last Name: </td>
+        <td class="cntr">
+        <input type="text" name="lastname"   size="20"> </td>
+      </tr>
+      
+    </table>
+	<br>
+	<br>
+    <input id="reg" name="submitButton" type="button" onclick="regvalidate(this.form)" value="Register Now">
+ <br>
+  <div id="une" >
+  </div>
+</div>
+
+<!-- end wrap -->
+
+ <script type="text/javascript">
+var uneObj=document.getElementById("une"); // object ref to msg line
+var currentBrdObj;
+//
+function regvalidate(formObj)
+{ uneObj.innerHTML=""; // clear msg line before resubmitting
+ // gather object ref to input boxes
+  var allInputs=document.getElementById("regform").getElementsByTagName("input");
+ // check if value of box is "" 
+  for(var i=0;i<allInputs.length;i++)
+    { if(allInputs[i].name !="reg")    // ignore submit button
+       { if(allInputs[i].value=="")
+         { uneObj.innerHTML=msg[i];
+           if(currentBrdObj){currentBrdObj.style.border="2px solid #CCC"; }   
+           allInputs[i].style.border="2px solid #F00"; 
+           currentBrdObj=allInputs[i];
+           allInputs[i].onclick=function(){ this.style.border="2px solid #CCC"; }
+           return;
+     } } }         
+
+ uneObj.innerHTML = "All ok so submitting form";
+  formObj.submit(); 
+}
+// -----
+ var msg =["User Id should not be empty","Password should not be empty",
+          "User name should not be empty","Last name required",
+          "Please type a password","Please confirm password"];
+     msg[msg.length]="Passwords must be equal.<br>Please type a password";
+     
+      //  
+
+
+ 	  
+        </script>
+		
+</form>
+</body>
+
+</html>
+
+
+

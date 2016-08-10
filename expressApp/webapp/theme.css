@@ -1,0 +1,113 @@
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body {
+	margin:0;
+	display: block;
+    background: #f5f8fa;
+    color: #292f33;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-y: scroll;
+}
+
+#page-container {
+    height: 100%;
+	width:1000px;
+	margin: 0 auto;
+}
+
+div.content-left{
+	float:left;
+	margin:0;
+	width:390px;
+}
+div.content-right{
+	float:left;
+	margin:0;
+	width:600px;
+	background-color:#FFF;
+}
+
+button {
+    background: rgba(0,132,180,.8);
+    text-shadow: none;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+	color:#aa0000;
+}
+
+h1{font-size:2em;margin:.67em 0}
+
+div {
+    display: block;
+}
+
+div.content-left div {
+	background-color:#fff;
+	margin: 0 10px 5px 0;
+	padding:10px;
+}
+
+.roundBorder {
+	border:1px solid #eee;
+	border-radius: 8px;	
+}
+
+.tweet-box{
+	padding:5px 10px;
+	background-color: #E5F2F7;
+}
+
+.userTitle {
+	font-size:20px;
+	font-weight:bold;
+	color:#333;
+	vertical-align:middle;
+}
+
+.tweetItem {
+	margin:5px;
+	padding:5px;
+	border-bottom:1px solid #ddd;
+}
+
+.tweetUserID {
+	font-size:14px;
+	font-weight:bold;
+	margin-right:20px;
+	color:#333;
+}
+.tweetDate{
+	font-size:12px;
+	font-weight:normal;
+	color:#888;
+}
+.tweetMsg{
+	font-weight:normal;
+	color:#555;
+	font-size:14px;
+	line-height:18px;
+	margin-top:5px;
+}
+
+#userInfoSpan {
+	color:#333;
+}
+
+.floatDiv {
+	display:inline-block;
+	vertical-align: top;
+	margin-right:5px;
+}
